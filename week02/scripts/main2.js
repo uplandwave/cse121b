@@ -75,3 +75,16 @@ document.querySelector('#courses').textContent = "Div content";
 document.querySelector('div').textContent = "New Div content";
 
 document.querySelector('div').innerHTML = "<p>Para inside div<p>";
+
+// setSttribute method 
+
+let student = 'images/student.JPG';
+
+document.querySelector("img").setAttribute("src", student)
+document.querySelector("img").setAttribute("width", 400)
+
+//create element in JS
+//1. Create element 2. add content 3. add to the page
+let newPara = document.createElement('p');
+newPara.textContent = "this is text for my paragraph";
+document.body.appendChild(newPara);
