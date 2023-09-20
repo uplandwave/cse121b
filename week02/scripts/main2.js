@@ -88,3 +88,64 @@ document.querySelector("img").setAttribute("width", 400)
 let newPara = document.createElement('p');
 newPara.textContent = "this is text for my paragraph";
 document.body.appendChild(newPara);
+
+// OR
+
+// adding a brand new elemet 
+let para = document.querySelector(".p1");
+para.innerHTML += "<span> This is more information. </span>";
+
+//functions
+
+function show(){
+  console.log ("this is it");
+}
+
+show();
+
+function addIt(n1, n2){
+  return(n1 + n2);
+}
+let answer = document.createElement("p");
+answer.innerHTML += (addIt(3, 8));
+document.body.appendChild(answer)
+
+//array
+
+let classes = ["CSE121b", "CIT354", "WWD130", "WDD230"];
+
+console.log(classes);
+
+console.log(classes[2]);
+
+classes[2] = "WDD330";
+
+document.querySelector("#courses").textContent = classes.join(", ");
+
+//array methods
+
+//push add to the end of array
+classes.push("CIT222");
+document.querySelector("#courses").textContent = classes.join(", ");
+
+//shift takes off from begining 
+classes.shift();
+document.querySelector("#courses").textContent = classes.join(", ");
+
+// splice romove from the list paramiter and how many from the 2nd parameter and how many from 2
+classes.splice(2,1);
+document.querySelector("#courses").textContent = classes.join(", ");
+
+// pop removes from the end of the list
+classes.pop();
+document.querySelector("#courses").textContent = classes.join(", ");
+
+let date = new Date();
+let year = date.aetFullYear(date);
+
+console.log(date);
+console.log(year);
+
+
+
+
