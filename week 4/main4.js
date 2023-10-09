@@ -20,8 +20,40 @@ const aCorse = {
     sections: [
         {sectionNum: 1, roomNum: "STC 353", enrolled: 26, days: "TTh", instructor: "bro T"},
         {sectionNum: 2, roomNum: "STC 361", enrolled: 40, days: "MWF", instructor: "sis A"},
-    ]
-}
+    ],
+    showSection:function(){
+        console.log(this.sections[0].sectionNum);
+    },
+    enrollStudent: function(sectionNum){
+        // takes user section number and gets index for that section
+        const sectionIndex = this.sections.findIndex((item) => item.sectionNum == sectionNum)
+        console.log(sectionIndex)
+        // add one to that section
+        if (sectionIndex >= 0) {
+            this.sections[sectionIndex].enrolled++;
+            renderSections(this.sections);
+            console.log(this.item);
+        }
+    }
+};
+document.querySelector('#enrollStudent').addEventListener('click', function(){
+    const sectionNum = document.querySelector("#sectionNumber").value;
+    aCorse.enrollStudent(sectionNum);
+})
+// aCorse.enrollStudent(2);
+// aCorse.showSection();
+
+function renderSections(sections) {
+    const html = sections.map(
+      (section) => `<tr>
+      <td>${section.sectionNum}</td>
+      <td>${section.roomNum}</td>
+      <td>${section.enrolled}</td>
+      <td>${section.days}</td>
+      <td>${section.instructor}</td></tr>`
+    );
+    document.querySelector("#sections").innerHTML = html.join("");
+  }
 
 console.log(aCorse.sections[1]);
 console.log(aCorse.sections[0].roomNum);
